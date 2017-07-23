@@ -1,0 +1,26 @@
+h1 Listing posts
+
+table
+  thead
+    tr
+      th No
+      th Post
+      th Posted by
+      th Action
+
+  tbody
+    - @posts.each_with_index do |post, idx|
+      tr
+        td = idx + 1
+        td = link_to "#{post.title}", post
+        td = post.user.email
+        td
+           = link_to 'Edit', edit_post_path(post)
+           '  |
+           = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Post', new_post_path
+'  |
+= link_to 'Sign Out',  destroy_user_session_path, method: :delete 
