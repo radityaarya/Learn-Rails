@@ -5,5 +5,15 @@
       ul
         - @post.errors.full_messages.each do |message|
           li = message
+          
+  .field
+    = f.label :title
+    = f.text_field :title, id: :post_title
+  .field
+    = f.label :content
+    = f.text_area :content, id: :post_content
+  .field
+    = f.label :user_id
+    = f.text_field :user_id, id: :post_user_id
 
   .actions = f.submit
